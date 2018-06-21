@@ -1,0 +1,14 @@
+{
+  "alias": ["testing-devops-v2-staging"],
+  "files": ["public", "src", "config-overrides.js", "now.json", "yarn.lock"],
+  "env": {
+    "NODE_ENV": "production",
+    "githubAccessToken": "@github"
+  },
+  "scale": {
+    "bru1": {
+      "min": 1,
+      "max": "auto"
+    }
+  }
+}

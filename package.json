@@ -30,8 +30,9 @@
     "dev:server": "DEV=true babel-watch ./src/server/index.js",
     "now-start": "node build/server/index.js",
     "test": "react-scripts test --env=jsdom",
-    "travis:production": "now --token $NOW_TOKEN && now alias --token $NOW_TOKEN && now rm -s -y --token $NOW_TOKEN",
-    "travis:staging": "now -A now-staging.json --token $NOW_TOKEN && now alias -A now-staging.json --token $NOW_TOKEN && now rm -A now-staging.json -s -y --token $NOW_TOKEN",
+    "travis:clean": "now rm testing-devops-v2 -s -y --token $NOW_TOKEN",
+    "travis:production": "now --token $NOW_TOKEN && now alias --token $NOW_TOKEN && yarn travis:clean",
+    "travis:staging": "now -A now-staging.json --token $NOW_TOKEN && now alias -A now-staging.json --token $NOW_TOKEN && yarn travis:clean",
     "eject": "react-scripts eject"
   },
   "proxy": {

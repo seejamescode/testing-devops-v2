@@ -6,9 +6,9 @@
     "githubAccessToken": "@github"
   },
   "scale": {
-    "bru1": {
+    "sfo1": {
       "min": 1,
-      "max": "auto"
+      "max": 1
     }
   }
 }

@@ -6,14 +6,20 @@ class App extends Component {
   state = {
     repos: []
   };
+
   componentDidMount() {
-    fetch("/api/v1/github")
+    fetch(`/api/v1/github`, {
+      credentials: "same-origin"
+    })
       .then(response => response.json())
       .then(data => {
-        const repos = data.map(repo => <p key={repo.id}>{repo.name}</p>);
-        this.setState({ repos });
+        if (data.length > 0) {
+          const repos = data.map(repo => <p key={repo.id}>{repo.name}</p>);
+          this.setState({ repos });
+        }
       });
   }
+
   render() {
     return (
       <div className="App">
